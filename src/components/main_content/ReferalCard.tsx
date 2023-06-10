@@ -4,7 +4,7 @@ import Image from "next/image";
 const ReferalCard = () => {
   return (
     <div className="mx-auto grid max-w-[544px] gap-[25px] rounded-2xl border border-[#1F343E] bg-white px-4 py-8 text-[#1F343E] md:gap-8 md:p-16">
-      <h2 className="font-caveatBrush text-[32px] md:text-5xl">
+      <h2 className="font-caveatBrush text-[32px] uppercase md:text-5xl">
         REFER FRIENDS AND GET REWARDS
       </h2>
       <p className="md:text-xl">
