@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 import Header from "@/components/header/Header";
 import "./globals.css";
 import { Noto_Sans, Caveat_Brush } from "next/font/google";
@@ -25,6 +26,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className={notoSans.className}>
         <Header />
         {children}

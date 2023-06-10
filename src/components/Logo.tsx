@@ -5,6 +5,7 @@ import Image from "next/image";
 const Logo = () => {
   return (
     <Image
+      priority={true}
       src="/images/logo.svg"
       alt="logo"
       className="cursor-pointer"
