@@ -25,16 +25,16 @@ const Footer = () => {
             <h4 className="font-bold tracking-[1.28px]">QUICK LINKS</h4>
             <ul className="flex flex-col gap-y-[15px]">
               <li>
-                <a href="#"></a>Price Comparison
+                <a href="#">Price Comparison</a>
               </li>
               <li>
-                <a href="#"></a>Chrome Extension
+                <a href="#">Chrome Extension</a>
               </li>
               <li>
-                <a href="#"></a>How It Works
+                <a href="#">How It Works</a>
               </li>
               <li>
-                <a href="#"></a>Ratepunk Blog
+                <a href="#">Ratepunk Blog</a>
               </li>
               <li>
                 <a href="#">Privacy Policy</a>
