@@ -1,12 +1,20 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import isEmail from "validator/es/lib/isEmail";
 
 let savedCode = "abc";
 
 const GetReferralForm = ({ onSuccess }: { onSuccess: () => any }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const gerReferralCode = async (email: string) => {
-    const d = await fetch(
+    await fetch(
       "https://api.jsonbin.io/v3/b/" + process.env.NEXT_PUBLIC_JSONBIN_BIN_ID,
       {
         method: "PUT",
@@ -21,12 +29,26 @@ const GetReferralForm = ({ onSuccess }: { onSuccess: () => any }) => {
         }),
       }
     ).then((res) => res.json());
-    console.log({ d })
-    savedCode = "referral";
+    return "referral";
   };
 
   return (
-    <>
+    <form
+      onSubmit={handleSubmit((data) => {
+        gerReferralCode(data.email).then((code) => {
+          savedCode = code;
+          onSuccess();
+        });
+      })}
+      className="grid gap-4 md:pt-1"
+    >
+      {errors.email?.type == "required" && (
+        <span className="text-red-500">This field is required</span>
+      )}
+      {errors.email?.type == "validate" && (
+        <span className="text-red-500">This field has to be an email</span>
+      )}
+
       <div className="flex flex-row gap-x-4 rounded-lg border border-[#1F343E]  p-4">
         <Image
           src="/images/email.svg"
@@ -36,22 +58,18 @@ const GetReferralForm = ({ onSuccess }: { onSuccess: () => any }) => {
           height="13"
         />
         <input
-          type="email"
+          {...register("email", { required: true, validate: isEmail })}
           className="w-full text-[#375360] focus:outline-none "
           placeholder="Enter your email address"
         />
       </div>
       <button
-        onClick={() => {
-          gerReferralCode("email@eeeeee.com").then(() => {
-            onSuccess();
-          });
-        }}
+        type="submit"
         className="align-center  mx-auto w-full rounded-lg border border-[#1F343E] bg-[#4EB3E3] py-4 font-bold text-white"
       >
         Get Referral Link
       </button>
-    </>
+    </form>
   );
 };
 
@@ -59,12 +77,21 @@ const ReferralLink = ({ code }: { code: string }) => {
   const url = "https://ratepunk.com/" + code;
 
   return (
-    <>
-      <div className="font-bold">[icon] Your email is confirmed!</div>
+    <div className="grid gap-4 md:pt-1">
+      <div className="flex flex-row items-center gap-4 ">
+        <Image
+          src="/images/success.svg"
+          alt="success"
+          className="block cursor-pointer md:h-8 md:w-8"
+          width="24"
+          height="24"
+        />
+        <p className="font-bold">Your email is confirmed!</p>
+      </div>
       <div className="flex flex-row gap-x-4 rounded-lg border border-[#1F343E]  p-4">
         {/* change this to div */}
         <input
-          className="w-full text-[#375360] focus:outline-none bg-white"
+          className="w-full bg-white text-[#375360] focus:outline-none"
           placeholder={url}
           value={url}
           disabled
@@ -78,7 +105,7 @@ const ReferralLink = ({ code }: { code: string }) => {
       >
         Copy URL
       </button>
-    </>
+    </div>
   );
 };
 
@@ -95,13 +122,11 @@ const ReferalCard = () => {
         give you 1 coin for each friend that installs our extension. Minimum
         cash-out at 20 coins.
       </p>
-      <div className="grid gap-4 md:pt-1">
-        {showReferralLink ? (
-          <ReferralLink code={savedCode} />
-        ) : (
-          <GetReferralForm onSuccess={() => setShowReferralLink(true)} />
-        )}
-      </div>
+      {showReferralLink ? (
+        <ReferralLink code={savedCode} />
+      ) : (
+        <GetReferralForm onSuccess={() => setShowReferralLink(true)} />
+      )}
       <p className="pt-12 text-[#6D7A80] md:pt-[121px] md:text-xl">
         Limits on max rewards apply.
       </p>
