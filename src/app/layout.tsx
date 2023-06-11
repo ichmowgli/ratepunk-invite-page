@@ -2,6 +2,7 @@
 import Header from "@/components/header/Header";
 import "./globals.css";
 import { Noto_Sans, Caveat_Brush } from "next/font/google";
+import Footer from "@/components/footer/Footer";
 
 const notoSans = Noto_Sans({
   weight: ["400", "700"],
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body className={notoSans.className}>
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -44,10 +44,10 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="bg-[#45565E]">
-        <div className="mx-auto  flex max-w-[1120px] flex-col justify-center gap-4 p-8 xl:flex-row xl:gap-8 xl:px-0">
+      <div className="border-y border-black bg-[#45565E]">
+        <div className="mx-auto flex max-w-[1120px] flex-col justify-center	 gap-4 p-8 xl:flex-row xl:justify-normal xl:gap-8 xl:px-0">
           <StoreLink />
-          <div className="flex items-center justify-center gap-x-4 pt-2">
+          <div className="flex items-center justify-center gap-x-4 pt-2 xl:pt-0">
             <div className="flex gap-x-1">
               <Icon icon="ion:star" color="white" width="16" height="16" />
               <Icon icon="ion:star" color="white" width="16" height="16" />
@@ -55,7 +55,7 @@ export default function Home() {
               <Icon icon="ion:star" color="white" width="16" height="16" />
               <Icon icon="ion:star" color="white" width="16" height="16" />
             </div>
-            <p className="text-white ">Chrome Store reviews</p>
+            <p className="text-white md:text-xl ">Chrome Store reviews</p>
           </div>
         </div>
       </div>
