@@ -88,23 +88,20 @@ const ReferralLink = ({ code }: { code: string }) => {
         />
         <p className="font-bold">Your email is confirmed!</p>
       </div>
-      <div className="flex flex-row gap-x-4 rounded-lg border border-[#1F343E]  p-4">
-        {/* change this to div */}
-        <input
-          className="w-full bg-white text-[#375360] focus:outline-none"
-          placeholder={url}
-          value={url}
-          disabled
-        />
+      <div className="flex flex-col gap-y-4 md:flex-row md:justify-between  md:text-xl">
+        <p className="rounded-lg border border-[#1F343E] p-4 text-[#6D7A80] md:w-full md:rounded-none md:rounded-l-lg md:border-r-0">
+          {url}
+        </p>
+
+        <button
+          onClick={() => {
+            navigator.clipboard.writeText(url);
+          }}
+          className="rounded-lg  border border-[#1F343E] bg-[#4EB3E3] py-4 font-bold text-white md:rounded-none md:rounded-r-lg md:border-y md:border-r md:px-6"
+        >
+          Copy <span className="md:hidden">URL</span>
+        </button>
       </div>
-      <button
-        onClick={() => {
-          navigator.clipboard.writeText(url);
-        }}
-        className="align-center  mx-auto w-full rounded-lg border border-[#1F343E] bg-[#4EB3E3] py-4 font-bold text-white"
-      >
-        Copy URL
-      </button>
     </div>
   );
 };
