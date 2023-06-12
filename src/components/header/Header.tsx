@@ -37,8 +37,8 @@ function Header() {
             />
           ) : (
             <Image
-              src="/images/Menu.svg"
-              alt="Menu"
+              src="/images/menu.svg"
+              alt="menu"
               className="block cursor-pointer"
               width="16"
               height="16"
