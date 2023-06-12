@@ -43,13 +43,13 @@ const GetReferralForm = ({ onSuccess }: { onSuccess: () => any }) => {
       className="grid gap-4 md:pt-1"
     >
       {errors.email?.type == "required" && (
-        <span className="text-red-500">This field is required</span>
+        <span className="text-main-red">This field is required</span>
       )}
       {errors.email?.type == "validate" && (
-        <span className="text-red-500">This field has to be an email</span>
+        <span className="text-main-red">This field has to be an email</span>
       )}
 
-      <div className="flex flex-row gap-x-4 rounded-lg border border-[#1F343E]  p-4">
+      <div className="flex flex-row gap-x-4 rounded-lg border border-main  p-4">
         <Image
           src="/images/email.svg"
           alt="email"
@@ -59,13 +59,13 @@ const GetReferralForm = ({ onSuccess }: { onSuccess: () => any }) => {
         />
         <input
           {...register("email", { required: true, validate: isEmail })}
-          className="w-full text-[#375360] focus:outline-none "
+          className="w-full text-dark-gray focus:outline-none "
           placeholder="Enter your email address"
         />
       </div>
       <button
         type="submit"
-        className="align-center  mx-auto w-full rounded-lg border border-[#1F343E] bg-[#4EB3E3] py-4 font-bold text-white"
+        className="align-center  mx-auto w-full rounded-lg border border-main bg-main-blue py-4 font-bold text-white"
       >
         Get Referral Link
       </button>
@@ -88,8 +88,8 @@ const ReferralLink = ({ code }: { code: string }) => {
         />
         <p className="font-bold">Your email is confirmed!</p>
       </div>
-      <div className="flex flex-col gap-y-4 md:flex-row md:justify-between  md:text-xl">
-        <p className="rounded-lg border border-[#1F343E] p-4 text-[#6D7A80] md:w-full md:rounded-none md:rounded-l-lg md:border-r-0">
+      <div className="links-distance md:flex-row md:justify-between  md:text-xl">
+        <p className="rounded-lg border border-main p-4 text-light-gray md:w-full md:rounded-none md:rounded-l-lg md:border-r-0">
           {url}
         </p>
 
@@ -97,7 +97,7 @@ const ReferralLink = ({ code }: { code: string }) => {
           onClick={() => {
             navigator.clipboard.writeText(url);
           }}
-          className="rounded-lg  border border-[#1F343E] bg-[#4EB3E3] py-4 font-bold text-white md:rounded-none md:rounded-r-lg md:border-y md:border-r md:px-6"
+          className="rounded-lg  border border-main bg-main-blue py-4 font-bold text-white md:rounded-none md:rounded-r-lg md:border-y md:border-r md:px-6"
         >
           Copy <span className="md:hidden">URL</span>
         </button>
@@ -110,10 +110,8 @@ const ReferalCard = () => {
   const [showReferralLink, setShowReferralLink] = useState(false);
 
   return (
-    <div className="mx-auto grid max-w-[544px] gap-[25px] rounded-2xl border border-[#1F343E] bg-white px-4 py-8 text-[#1F343E] md:gap-8 md:p-16 xl:m-0">
-      <h2 className="font-caveatBrush text-[32px] uppercase md:text-5xl">
-        REFER FRIENDS AND GET REWARDS
-      </h2>
+    <div className="mx-auto grid max-w-544 gap-[25px] rounded-2xl border border-main bg-white px-4 py-8 text-main md:gap-8 md:p-16 xl:m-0">
+      <h2 className="curly-font md:text-5xl">REFER FRIENDS AND GET REWARDS</h2>
       <p className="md:text-xl">
         Refer your friends to us and earn hotel booking vouchers. We&apos;ll
         give you 1 coin for each friend that installs our extension. Minimum
@@ -124,7 +122,7 @@ const ReferalCard = () => {
       ) : (
         <GetReferralForm onSuccess={() => setShowReferralLink(true)} />
       )}
-      <p className="pt-12 text-[#6D7A80] md:pt-[121px] md:text-xl">
+      <p className="pt-12 text-light-gray md:pt-[121px] md:text-xl">
         Limits on max rewards apply.
       </p>
     </div>

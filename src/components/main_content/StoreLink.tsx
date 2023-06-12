@@ -3,7 +3,7 @@ import Image from "next/image";
 const StoreLink = () => {
   return (
     <div className="mx-auto flex flex-col gap-4 md:flex-row xl:mx-0">
-      <div className="flex max-w-[312px] flex-row gap-x-5 rounded-2xl border border-[#1F343E] px-6 py-[14px]">
+      <div className="flex max-w-312 flex-row gap-x-5 rounded-2xl border border-main px-6 py-[14px]">
         <Image
           src="/images/chrome.svg"
           alt="chrome"
@@ -16,7 +16,7 @@ const StoreLink = () => {
           <h4 className="text-xl font-bold">chrome web store</h4>
         </div>
       </div>
-      <div className="flex max-w-[312px] flex-row gap-x-5 rounded-2xl border border-[#1F343E] px-6 py-[14px]">
+      <div className="flex max-w-312 flex-row gap-x-5 rounded-2xl border border-main px-6 py-[14px]">
         <Image
           src="/images/apple.svg"
           alt="apple store"

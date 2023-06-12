@@ -16,7 +16,7 @@ function Header() {
 
   return (
     <nav className="border-b border-black">
-      <div className="mx-auto flex max-w-[544px] items-center justify-between px-4 py-3 md:px-0 md:py-5 xl:max-w-[1120px]">
+      <div className="mx-auto flex max-w-544 items-center justify-between px-4 py-3 md:px-0 md:py-5 xl:max-w-1120">
         <Logo />
         <div className="hidden md:block">
           <Navbar />

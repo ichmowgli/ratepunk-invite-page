@@ -28,8 +28,8 @@ const steps: IStep[] = [
 export default function Home() {
   return (
     <>
-      <div className="bg-[#F8CC5D]">
-        <div className="mx-auto flex max-w-[1120px] flex-col items-center gap-y-12 px-4 py-8 md:px-0 md:py-16 xl:flex-row xl:justify-between xl:gap-x-32">
+      <div className="bg-main-yellow">
+        <div className="mx-auto flex max-w-1120 flex-col items-center gap-y-12 px-4 py-8 md:px-0 md:py-16 xl:flex-row xl:justify-between xl:gap-x-32">
           <ReferalCard />
           <div className="grid gap-y-12">
             {steps.map((step, index) => (
@@ -44,8 +44,8 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="border-y border-black bg-[#45565E]">
-        <div className="mx-auto flex max-w-[1120px] flex-col justify-center	 gap-4 p-8 xl:flex-row xl:justify-normal xl:gap-8 xl:px-0">
+      <div className="border-y border-black bg-dark">
+        <div className="mx-auto flex max-w-1120 flex-col justify-center gap-4 p-8 xl:flex-row xl:justify-normal xl:gap-8 xl:px-0">
           <StoreLink />
           <div className="flex items-center justify-center gap-x-4 pt-2 xl:pt-0">
             <div className="flex gap-x-1">
