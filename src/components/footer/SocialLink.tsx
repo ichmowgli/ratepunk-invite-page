@@ -4,9 +4,12 @@ interface SocialLinkProps {
 
 const SocialLink: React.FC<SocialLinkProps> = ({ children }) => {
   return (
-    <div className="flex h-8 w-8 justify-center rounded-lg border border-main bg-main-blue p-2 ">
+    <a
+      href="#"
+      className="flex h-8 w-8 justify-center rounded-lg border border-main bg-main-blue p-2 "
+    >
       {children}
-    </div>
+    </a>
   );
 };
 

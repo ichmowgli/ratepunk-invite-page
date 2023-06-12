@@ -28,8 +28,8 @@ function Header() {
         >
           {isOpen ? (
             <Image
-              src="/images/Close.svg"
-              alt="Close"
+              src="/images/close.svg"
+              alt="close"
               className="block cursor-pointer"
               width="16"
               height="16"

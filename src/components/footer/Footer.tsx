@@ -5,6 +5,11 @@ import Image from "next/image";
 import SocialLink from "./SocialLink";
 
 const Footer = () => {
+  const subject = encodeURIComponent("Hello Ratepunk");
+  const body = encodeURIComponent(
+    "Hi, I'm interested in trip! Let's discuss it."
+  );
+
   return (
     <div className="mx-auto flex max-w-544 flex-col gap-y-12 px-8 py-12 text-main md:px-0 xl:max-w-1120 xl:gap-y-0">
       <div className="flex flex-col gap-12 xl:flex-row xl:gap-x-32">
@@ -52,7 +57,11 @@ const Footer = () => {
                   width="16"
                   height="13"
                 />
-                <a href="#">hi@ratepunk.com</a>
+                <a
+                  href={`mailto:hi@ratepunk.com?subject=${subject}&body=${body}`}
+                >
+                  hi@ratepunk.com
+                </a>
               </div>
             </div>
             <div className="links-distance">
